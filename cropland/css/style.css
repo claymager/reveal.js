@@ -1,0 +1,31 @@
+.my-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: row; }
+
+div.my-flex img {
+  margin: 0 20px 20px 20px; }
+
+g {
+  font-family: "Source Sans Pro";
+  fill:#ddd;
+  font-size: 22px; }
+
+svg {
+  max-width: 95%;
+  margin: 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+
+rect {
+  opacity: 0.6;
+}
+rect.cell-hover {
+  stroke: #fff;
+  opacity: 1.0;
+  stroke-width:1px;
+}
+    
+div.thin h4{
+  margin: 0; }

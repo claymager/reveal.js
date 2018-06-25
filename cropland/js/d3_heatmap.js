@@ -6,8 +6,8 @@ function make_heatmap(data){
   const width  = +svg.attr("width");
   const height = +svg.attr("height");
 
-  const colHeight = 30;
-  const colWidth  = 30;
+  const colHeight = 25;
+  const colWidth  = 25;
 
   var color = d3.scaleSequential(d3.interpolateInferno).domain([0,0.3]);
 
@@ -19,8 +19,10 @@ function make_heatmap(data){
   names.append('g')
        .append('text')
        .text((d) => d.usda)
-       .attr('x', 0)
-       .attr('y', (datum, index) => (index + 1) * colHeight);
+       .attr('x', 245)
+       .attr('text-anchor','end')
+       .attr('y', (datum, index) => (index + 1) * colHeight + 6);
+
 
   names.selectAll('rect')
        .data((d,j) => d.cluster.map((weight, i) => {
@@ -32,7 +34,7 @@ function make_heatmap(data){
        }))
        .enter()
        .append('rect')
-       .attr('x', (d,col) => (col + 1.91)*colWidth)
+       .attr('x', (d,col) => (col + 1.91)*colWidth + 200)
        .attr('y', (d,col) => (d.row + 0.51)*colHeight)
        .attr('width', 0.98*colWidth)
        .attr('height', 0.98*colHeight)
