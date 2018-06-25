@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cropland Clustering</title>
+
+		<meta name="description" content="Presenting my attempts at replicating the USDA Cropland Data Layer">
+		<meta name="author" content="John Mager">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+    <!-- Starting my own -->
+    <style type="text/css" media="screen">
+    .my-flex {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+    }
+    div.my-flex img,
+    div.my-flex div {
+      margin: 40px 40px 40px 40px;
+    }
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- For heatmap -->
+    <style>
+    rect {
+      opacity: 0.6;
+    }
+    rect.cell-hover {
+      stroke: #0AF;
+      opacity: 1.0;
+      stroke-width:0.8px;
+    }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+    <script src='js/d3_heatmap.js'></script>
+
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>Cropland</h1>
+          <h4>my attempts at replicating the USDA Cropland Data Layer</h4>
+					<p>
+						<small><a href="https://claymager.github.io">John Mager</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>The full area, 2 June 2017</h2>
+          <img data-src="img/0602-rgb-expanded.png" alt="the full map" height=500>
+          <aside class=notes>
+            landsat-8 takes this picture 24 times a year
+            used all of them that had under 40% cloud cover
+          </aside>
+        </section>
+
+        <section>
+          <h2>Let's look a little closer</h2>
+          <img data-src="img/0602-rgb.png" alt="a smaller area" height=500>
+          <aside class=notes>
+            individual plots visible in NW
+          </aside>
+				</section>
+
+        <section>
+          <h2>at some more colors.</h2>
+          <div class="my-flex">
+            <img data-src="img/0602-rgb.png" alt="a smaller area" height=300>
+            <img data-src="img/0602-false-color.png" alt="glowing riverbanks" height=300>
+          </div>
+          <aside class=notes>
+          </aside>
+				</section>
+
+        <section>
+          <h2>later in the year</h2>
+          <div class="my-flex">
+            <Img data-src="img/0922-rgb.png" alt="some red" height=300>
+            <img data-src="img/0922-false-color.png" alt="and a lot of chlorophyll" height=300>
+          </div>
+          <aside class=notes>
+          </aside>
+				</section>
+
+        <section>
+          <h2>Processing</h2>
+          <ul>
+            <li>cloud and obstruction removal</li>
+            <li>pooling to 1 acre</li>
+            <li>pca to reduce number of channels</li>
+            <li>kmeans for 25 clusters</li>
+          </ul>
+          <aside class=notes>
+          </aside>
+				</section>
+
+        <section>
+          <h2>Clusters</h2>
+          <div class=my-flex>
+            <div>
+              <h4>KMeans</h4>
+              <img data-src="img/kmeans.png" alt="a smaller area" height=300>
+            </div>
+            <div>
+              <h4>USDA</h4>
+              <img data-src="img/usda_cdl.png" alt="a smaller area" height=300>
+            </div>
+          </div>
+          <aside class=notes>
+          </aside>
+				</section>
+
+        <section>
+          <section>
+            <h2>Cluster similarity</h2>
+            <Img data-src="img/heatmap.png" alt="heatmap!">
+          </section>
+          <section>
+            <h2>Cluster similarity</h2>
+            <div id="chart" style='width:960px; height:480px;'>
+              <svg  width="960" height="480"></svg>
+            </div>
+          </section>
+          <aside class=notes>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Thank you</h2>
+          <div class="my_flex">
+            <img data-src="img/0602-rgb-expanded.png" alt="the full map" height=300>
+            <img data-src="img/kmeans_expanded.png" alt="a smaller area" height=300>
+            <img data-src="img/cdl_expanded.png" alt="a smaller area" height=300>
+          </div>
+          <div class="my-flex">
+            <img data-src="img/headshot.jpg" alt="headshot" height="150">
+            <div id="contact">
+              <p><i class="fab fa-github"></i> claymager</p>
+              <p><i class="fab fa-linkedin"></i> john-mager</p>
+            </div>
+          </div>
+          <aside class=notes>
+          </aside>
+        </section>
+
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/search/search.js', async: true },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>clustering
