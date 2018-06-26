@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/bin/node',
+1 verbose cli   '/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.14.3
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle reveal.js@3.6.0~prestart: reveal.js@3.6.0
+6 silly lifecycle reveal.js@3.6.0~prestart: no script for prestart, continuing
+7 info lifecycle reveal.js@3.6.0~start: reveal.js@3.6.0
+8 verbose lifecycle reveal.js@3.6.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle reveal.js@3.6.0~start: PATH: /nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/lib/node_modules/npm/bin/node-gyp-bin:/home/john/reveal.js/node_modules/.bin:/nix/store/y5rlyv6nz8134s687d95ysc2gakwx7am-patchelf-0.9/bin:/nix/store/rf7pnq8qk9bkjpl4s2pm5dm2pk4yqhrc-paxctl-0.9/bin:/nix/store/gqg2vrcq7krqi9rrl6pphvsg81sb8pjw-gcc-wrapper-7.3.0/bin:/nix/store/bm7pb1s7rx1ad80706b5xqrznq7fgpgx-gcc-7.3.0/bin:/nix/store/6ca5dl2wy0nh37li1n4b152fcazsp3f6-glibc-2.26-131-bin/bin:/nix/store/cb3slv3szhp46xkrczqw7mscy5mnk64l-coreutils-8.29/bin:/nix/store/cmxaqb5cbzy4jk26na842n6hy1s4yn19-binutils-wrapper-2.28.1/bin:/nix/store/b0zlxla7dmy1iwc3g459rjznx59797xy-binutils-2.28.1/bin:/nix/store/6ca5dl2wy0nh37li1n4b152fcazsp3f6-glibc-2.26-131-bin/bin:/nix/store/cb3slv3szhp46xkrczqw7mscy5mnk64l-coreutils-8.29/bin:/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/bin:/nix/store/cb3slv3szhp46xkrczqw7mscy5mnk64l-coreutils-8.29/bin:/nix/store/364b5gkvgrm87bh1scxm5h8shp975n0r-findutils-4.6.0/bin:/nix/store/cg3yhpr5hfr00y0aah23pgxiijpzl6nz-diffutils-3.6/bin:/nix/store/navldm477k3ar6cy0zlw9rk43i459g69-gnused-4.4/bin:/nix/store/s63b2myh6rxfl4aqwi9yxd6rq66djk33-gnugrep-3.1/bin:/nix/store/j79xs2j519bmvq0gihz8ff4nw5aj3vlh-gawk-4.2.0/bin:/nix/store/2p00w952ljb1172nsf3jm7nsjgsw5qpw-gnutar-1.30/bin:/nix/store/d7895h1an2pgcd6a3vx3yb5fbg786lci-gzip-1.9/bin:/nix/store/qqv6r9vkpb44rw5d8wyfpx64rgqzlvdm-bzip2-1.0.6.0.1-bin/bin:/nix/store/lhp5rw0dagi5mgqwr9i3x41240ba4ypz-gnumake-4.2.1/bin:/nix/store/zqh3l3lyw32q1ayb15bnvg9f24j5v2p0-bash-4.4-p12/bin:/nix/store/gd1mp76qr4zpbw3lccivhvi30b025x51-patch-2.7.6/bin:/nix/store/aakgkcvw6j54zg38zrn1w00sgxx0zj8b-xz-5.2.3-bin/bin:/home/john/bin:/run/wrappers/bin:/etc/profiles/per-user/john/bin:/home/john/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin
+10 verbose lifecycle reveal.js@3.6.0~start: CWD: /home/john/reveal.js
+11 silly lifecycle reveal.js@3.6.0~start: Args: [ '-c', 'grunt serve' ]
+12 silly lifecycle reveal.js@3.6.0~start: Returned: code: 1  signal: null
+13 info lifecycle reveal.js@3.6.0~start: Failed to exec start script
+14 verbose stack Error: reveal.js@3.6.0 start: `grunt serve`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:920:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+15 verbose pkgid reveal.js@3.6.0
+16 verbose cwd /home/john/reveal.js
+17 error Linux 4.14.51
+18 error argv "/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/bin/node" "/nix/store/n05xf7py24n48q36azbwz1gim0sayram-nodejs-6.14.3/bin/npm" "start"
+19 error node v6.14.3
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error reveal.js@3.6.0 start: `grunt serve`
+22 error Exit status 1
+23 error Failed at the reveal.js@3.6.0 start script 'grunt serve'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the reveal.js package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     grunt serve
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs reveal.js
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls reveal.js
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

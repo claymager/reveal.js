@@ -19,6 +19,7 @@ function make_heatmap(data){
   names.append('g')
        .append('text')
        .text((d) => d.usda)
+       .attr('class', function(d,i) { return "rowLabel r"+i+" text-native";})
        .attr('x', 245)
        .attr('text-anchor','end')
        .attr('y', (datum, index) => (index + 1) * colHeight + 6);
@@ -41,11 +42,15 @@ function make_heatmap(data){
        .attr('fill', (d) => color(d.weight))
        .attr("class", (d, i) => `cell cell-border cr${d.row} cc${i}`)
        .on('mouseover', function(d){
-         d3.selectAll(`.cc${d.col}`).classed("cell-hover",(d_other) => d_other.weight > 0.05);
+         d3.selectAll(`.cc${d.col}`).classed("cell-hover",(d_other) => d_other.weight > 0.07);
+         d3.selectAll(".rowLabel").classed("text-highlight",function(r,ri){ 
+           return d3.selectAll(`.cr${ri}.cell-hover`).size();});
+         d3.selectAll(".rowLabel").classed("text-native", false);
        })
        .on('mouseout', function(d){
          d3.select(this).classed('cell-hover', false);
          d3.selectAll(`.cc${d.col}`).classed("cell-hover",false);
+         d3.selectAll(".rowLabel").classed("text-highlight",false);
        });
 
 

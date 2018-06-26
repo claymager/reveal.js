@@ -8,8 +8,15 @@ div.my-flex img {
 
 g {
   font-family: "Source Sans Pro";
-  fill:#ddd;
+  fill:#aaa;
   font-size: 22px; }
+
+text.text-highlight {
+  fill:#42affa; 
+  font-weight:bold;}
+
+text.text-native {
+  fill:#fff}
 
 svg {
   max-width: 95%;
@@ -18,14 +25,14 @@ svg {
   border: 4px solid #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
-rect {
-  opacity: 0.6;
-}
-rect.cell-hover {
-  stroke: #fff;
-  opacity: 1.0;
-  stroke-width:1px;
-}
-    
 div.thin h4{
   margin: 0; }
+
+rect {
+  opacity: 0.6; }
+
+rect.cell-hover {
+  stroke: #CCC;
+  opacity: 1.0;
+  stroke-width:0.8px; }
+
