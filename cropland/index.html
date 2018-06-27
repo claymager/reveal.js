@@ -57,11 +57,29 @@
 				</section>
 
 				<section>
+					<h2>USDA Cropland Data Layer</h2>
+          <ul>
+            <li>landcover classification and estimation</li>
+            <li>produced after the calendar year</li>
+            <li>uses satellite data from:
+              <ul>
+                <li>5 satellites</li>
+                <li>yearly aggricultural statistics</li>
+            </ul></li>
+          </ul>
+				</section>
+
+        <section>
+          <h2>objective:</h2>
+          <p>to replicate the USDA Cropland Data Layer with the KMeans clustering algoritm</p>
+        </section>
+
+				<section>
 					<h2>full area, 2 June 2017</h2>
           <img data-src="img/0602-rgb-expanded.png" alt="the full map" height=500>
           <aside class=notes>
-            landsat-8 takes this picture 24 times a year
-            used all of them that had under 40% cloud cover
+            <p>landsat-8 takes this picture 24 times a year</p>
+            <p>used all of them that had under 40% cloud cover</p> 
           </aside>
         </section>
 
@@ -69,7 +87,7 @@
           <h2>look closer</h2>
           <img data-src="img/0602-rgb.png" alt="a smaller area" height=500>
           <aside class=notes>
-            individual plots visible in NW
+            <p>individual plots visible in NW</p>
           </aside>
 				</section>
 
@@ -96,10 +114,11 @@
         <section>
           <h2>Processing</h2>
           <ul>
-            <li>cloud and obstruction removal</li>
-            <li>pooling to 1 acre</li>
-            <li>pca to reduce number of channels</li>
-            <li>kmeans for 21 clusters</li>
+            <li>aligned all satellite images</li>
+            <li>removed clouds and other obstructions</li>
+            <li>pooled to 1 acre resolution</li>
+            <li>reduced dimensionality with pca</li>
+            <li>found 21 clusters with kmeans</li>
           </ul>
           <aside class=notes>
           </aside>
@@ -110,11 +129,11 @@
           <div class=my-flex>
             <div class="thin">
               <h4 class="thin">KMeans</h4>
-              <img data-src="img/kmeans.png" alt="a smaller area" height=300>
+              <img data-src="img/kmeans.png" alt="a smaller area" height=350>
             </div>
             <div class="thin">
               <h4 class="thin">USDA</h4>
-              <img data-src="img/usda_cdl.png" alt="a smaller area" height=300>
+              <img data-src="img/usda_cdl.png" alt="a smaller area" height=350>
             </div>
           </div>
           <aside class=notes>
@@ -124,25 +143,47 @@
         <section>
             <h2>Cluster similarity</h2>
             <div id="chart">
-              <svg id="heatmap" width="100%" height="500px"></svg>
+              <svg id="heatmap" width="85%" height="515px"></svg>
             </div>
           <aside class=notes>
           </aside>
         </section>
 
         <section>
-          <div class="my_flex">
-            <img data-src="img/0602-rgb-expanded.png" alt="the full map" height=300>
-            <img data-src="img/kmeans_expanded.png" alt="a smaller area" height=300>
-            <img data-src="img/cdl_expanded.png" alt="a smaller area" height=300>
+          <h2>Recolored clusters</h2>
+          <div class=my-flex>
+            <div class="thin">
+              <h4 class="thin">KMeans</h4>
+              <img data-src="img/kmeans-colored.png" alt="a smaller area" height=350>
+            </div>
+            <div class="thin">
+              <h4 class="thin">USDA</h4>
+              <img data-src="img/usda_cdl.png" alt="a smaller area" height=350>
+            </div>
+          </div>
+          <aside class=notes>
+          </aside>
+				</section>
+
+        <section>
+          <h2>full scale</h2>
+          <div class=my-flex>
+            <div class="thin">
+              <h4 class="thin">KMeans</h4>
+              <img data-src="img/kmeans-colored_expanded.png" alt="a smaller area" height=400>
+            </div>
+            <div class="thin">
+              <h4 class="thin">USDA</h4>
+              <img data-src="img/cdl_expanded.png" alt="a smaller area" height=400>
+            </div>
           </div>
         </section>
 
         <section>
           <h2>Thank you</h2>
           <div class="my_flex">
+            <img data-src="img/kmeans-colored_expanded.png" alt="a smaller area" height=300>
             <img data-src="img/0602-rgb-expanded.png" alt="the full map" height=300>
-            <img data-src="img/kmeans_expanded.png" alt="a smaller area" height=300>
             <img data-src="img/cdl_expanded.png" alt="a smaller area" height=300>
           </div>
           <div class="my-flex">

@@ -10,6 +10,7 @@ function make_heatmap(data){
   const colWidth  = 25;
 
   var color = d3.scaleSequential(d3.interpolateInferno).domain([0,0.3]);
+  var colLabel=['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21']
 
   const names = svg.selectAll('g')
                   .data(data)
@@ -20,7 +21,7 @@ function make_heatmap(data){
        .append('text')
        .text((d) => d.usda)
        .attr('class', function(d,i) { return "rowLabel r"+i+" text-native";})
-       .attr('x', 245)
+       .attr('x', 255)
        .attr('text-anchor','end')
        .attr('y', (datum, index) => (index + 1) * colHeight + 6);
 
@@ -35,14 +36,14 @@ function make_heatmap(data){
        }))
        .enter()
        .append('rect')
-       .attr('x', (d,col) => (col + 1.91)*colWidth + 200)
+       .attr('x', (d,col) => (col + 1.91)*colWidth + 210)
        .attr('y', (d,col) => (d.row + 0.51)*colHeight)
        .attr('width', 0.98*colWidth)
        .attr('height', 0.98*colHeight)
        .attr('fill', (d) => color(d.weight))
        .attr("class", (d, i) => `cell cell-border cr${d.row} cc${i}`)
        .on('mouseover', function(d){
-         d3.selectAll(`.cc${d.col}`).classed("cell-hover",(d_other) => d_other.weight > 0.07);
+        d3.selectAll(`.cc${d.col}`).classed("cell-hover",(d_other) => d_other.weight > 0.05);
          d3.selectAll(".rowLabel").classed("text-highlight",function(r,ri){ 
            return d3.selectAll(`.cr${ri}.cell-hover`).size();});
          d3.selectAll(".rowLabel").classed("text-native", false);
@@ -52,7 +53,17 @@ function make_heatmap(data){
          d3.selectAll(`.cc${d.col}`).classed("cell-hover",false);
          d3.selectAll(".rowLabel").classed("text-highlight",false);
        });
-
+  
+  var colLabels = svg.append("g")
+      .selectAll(".colLabelg")
+      .data(colLabel)
+      .enter()
+      .append("text")
+      .text(function (d) { return d; })
+      .attr("y", 40*colHeight)
+      .attr("x", function (d, col) { 
+        console.log(d); 
+        return d * colWidth });
 
 }
 
